@@ -1,11 +1,42 @@
 # Shelly exporter
 A prometheus exporter for shelly devices
 
-## Install
+## Install exporter
 To automaticly install this on an ubuntu machine run
 ```bash
 curl https://raw.githubusercontent.com/AndersBallegaard/shelly-exporter/refs/heads/main/install.sh | sudo bash -
 ```
+
+## Configure prometheus
+Add this to your prometheus.yml file
+```yaml
+  - job_name: Shelly_devices
+    file_sd_configs:
+      - files:
+        - 'shelly.json'
+    metrics_path: /probe
+    relabel_configs:
+    - source_labels: [__address__]
+      target_label: __param_target
+    - source_labels: [__param_target]
+      target_label: instance
+    - target_label: __address__
+      replacement: prometheus-shelly-exporter01.vm.srv6.dk:9118
+```
+Create shelly.json file
+```json
+[
+    {
+      "labels": {
+      "job": "Shelly_devices"
+      },
+      "targets": [
+        "add a list of your IP's here"
+     ]
+    }
+  ]
+```
+
 
 ## Usage example
 Get the status for device 172.16.13.111

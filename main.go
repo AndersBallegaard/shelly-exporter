@@ -13,7 +13,7 @@ import (
 
 func slash(w http.ResponseWriter, r *http.Request) {
 
-	w.Write([]byte("Go to /probe?ip=x.y.z.w to get the metrics for the IP x.y.z.w\n, or /metrics to get the metrics for the exporter itself\n"))
+	w.Write([]byte("Go to /probe?target=x.y.z.w to get the metrics for the IP x.y.z.w\n, or /metrics to get the metrics for the exporter itself\n"))
 }
 
 func probeEndpointFactory(hitCounter prometheus.Counter) http.HandlerFunc {
