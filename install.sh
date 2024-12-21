@@ -14,7 +14,7 @@ fi
 
 # Install dependencies
 apt-get update
-apt-get install -y go git
+apt-get install -y golang-go git
 
 # Clone the repository
 cd /tmp

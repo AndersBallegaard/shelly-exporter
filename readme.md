@@ -1,6 +1,12 @@
 # Shelly exporter
 A prometheus exporter for shelly devices
 
+## Install
+To automaticly install this on an ubuntu machine run
+```bash
+curl https://raw.githubusercontent.com/AndersBallegaard/shelly-exporter/refs/heads/main/install.sh | sudo bash -
+```
+
 ## Usage example
 Get the status for device 172.16.13.111
 ```bash
