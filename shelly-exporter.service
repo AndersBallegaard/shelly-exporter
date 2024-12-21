@@ -1,0 +1,12 @@
+[Unit]
+Description=Shelly Exporter Service
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/shelly-exporter
+Restart=always
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
