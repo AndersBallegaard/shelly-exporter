@@ -10,7 +10,7 @@ curl https://raw.githubusercontent.com/AndersBallegaard/shelly-exporter/refs/hea
 ## Usage example
 Get the status for device 172.16.13.111
 ```bash
-curl http://localhost:9118/probe?ip=172.16.13.111
+curl http://localhost:9118/probe?target=172.16.13.111
 # HELP shelly_meter_power_watts Power consumption of the Shelly device's meters in watts
 # TYPE shelly_meter_power_watts gauge
 shelly_meter_power_watts{ip="172.16.13.111",meter="0"} 11.39

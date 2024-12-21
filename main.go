@@ -20,7 +20,7 @@ func probeEndpointFactory(hitCounter prometheus.Counter) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		reg := prometheus.NewRegistry()
 		hitCounter.Inc()
-		shelly_ip := r.URL.Query().Get("ip")
+		shelly_ip := r.URL.Query().Get("target")
 
 		resp, err := http.Get("http://" + shelly_ip + "/status")
 		if err != nil {
